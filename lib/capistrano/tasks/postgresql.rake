@@ -145,8 +145,6 @@ namespace :postgresql do
     set :linked_files, fetch(:linked_files, []).push('config/database.yml')
   end
 
-  after 'deploy:started', 'postgresql:database_yml_symlink'
-
   desc 'Postgresql setup tasks'
   task :setup do
     invoke "postgresql:create_db_user"
